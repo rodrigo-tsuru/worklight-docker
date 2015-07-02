@@ -9,11 +9,12 @@ curl -O -L http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/luna/SR2
 RUN cd /tmp && \
 tar xvzf eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz && \
 rm eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz
-RUN eclipse/eclipse \
+RUN cd / tmp && \
+eclipse/eclipse \
 -noSplash \
 -application org.eclipse.equinox.p2.director \
 -repository jar:file:///tmp/mobilefirst_studio_plugin_7.0.0.zip\!/ \
 -followReferences \
--installIUs com.ibm.imp.tools.wce.feature.feature.group,com.ibm.imp.dojo.tools.licensed.feature.feature.group,com.ibm.webtools.jquery.tools.licensed.feature.feature.group
-RUN rm mobilefirst_studio_plugin_6.3.0.0.zip
+-installIUs com.ibm.imp.tools.wce.feature.feature.group,com.ibm.imp.dojo.tools.licensed.feature.feature.group,com.ibm.webtools.jquery.tools.licensed.feature.feature.group && \
+rm mobilefirst_studio_plugin_6.3.0.0.zip
 

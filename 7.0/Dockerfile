@@ -17,5 +17,9 @@ RUN cd /tmp/eclipse && \
 -repository jar:file:///tmp/mobilefirst_studio_plugin_7.0.0.zip\!/ \
 -followReferences \
 -installIUs com.ibm.imp.tools.wce.feature.feature.group,com.ibm.imp.dojo.tools.licensed.feature.feature.group,com.ibm.webtools.jquery.tools.licensed.feature.feature.group && \
+mv /tmp/eclipse /opt/eclipse && \
 rm /tmp/mobilefirst_studio_plugin_7.0.0.zip
-
+#RUN unzip /opt/eclipse/plugins/com.worklight.studio.plugin_7.0.0.*/worklightServerInstance.zip -d /opt/eclipse/plugins/com.worklight.worklight-artifacts_7.0.0.*/liberty/wlp/usr/
+#RUN chmod +x /opt/eclipse/plugins/com.worklight.worklight-artifacts_7.0.0.*/liberty/wlp/bin/server
+EXPOSE 10080
+CMD ["/opt/eclipse/eclipse"]
